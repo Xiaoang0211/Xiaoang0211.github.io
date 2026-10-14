@@ -2,6 +2,15 @@
   "paper.svg": {"source": "Original ProMo3D document outline icon"},
   "project-page.svg": {"source": "Original ProMo3D globe outline icon"},
   "code.svg": {"source": "Original ProMo3D code outline icon"},
+  "github.svg": {
+    "source": "https://brand.github.com/GitHub_Logos.zip",
+    "member": "GitHub Logos/SVG/GitHub_Invertocat_Black.svg",
+    "page": "https://brand.github.com/foundations/logo"
+  },
+  "arxiv.svg": {
+    "source": "https://info.arxiv.org/assets/arxiv-logo-one-color-black.svg",
+    "page": "https://info.arxiv.org/brand/logos.html"
+  },
   "huggingface.svg": {
     "source": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
     "change": "Added a matching viewBox for responsive scaling; original paths and colors preserved"
