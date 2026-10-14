@@ -38,3 +38,4 @@
 .feature-channel-1{fill:var(--token-purple-1)}.feature-channel-2{fill:var(--token-purple-2)}.feature-channel-3{fill:var(--token-purple-3)}.feature-channel-4{fill:var(--token-purple-4)}.feature-channel-5{fill:var(--token-purple-5)}
 .raw-tokens{display:flex;justify-content:center;gap:5px;margin:16px 0 0}.raw-tokens i{display:block;width:13px;height:25px;background:var(--token-purple-1)}.raw-tokens i:nth-child(5n+2){background:var(--token-purple-2)}.raw-tokens i:nth-child(5n+3){background:var(--token-purple-3)}.raw-tokens i:nth-child(5n+4){background:var(--token-purple-4)}.raw-tokens i:nth-child(5n){background:var(--token-purple-5)}
 .stage-equation,.anchor-static{color:var(--static)}
+.resource-icon{width:18px;height:18px;flex:none;object-fit:contain}.resource.primary .resource-icon{filter:invert(1)}
