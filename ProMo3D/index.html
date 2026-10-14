@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://xiaoang0211.github.io/ProMo3D/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="style.css?v=b41df4f0d85b">
+  <link rel="stylesheet" href="style.css?v=af3406d4657c">
   <script src="app.js?v=caf2dd936407" defer></script>
 </head>
 <body>
@@ -79,6 +79,7 @@
             <span class="stage-note">Input frames</span>
             <span class="stage-arrow" aria-hidden="true">&#8595;</span>
             <span class="stage-model">3D foundation model</span>
+            <span class="raw-tokens" role="img" aria-label="Schematic frozen tokens in the teaser's purple palette"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
             <span class="stage-tokens">H = [h<sub>0</sub>, h<sub>1</sub>, &#8230;, h<sub>N</sub>]</span>
             <span class="stage-note">Target-frame tokens</span>
             <p class="stage-explanation">Extract target-frame tokens from selected intermediate layers, based on the layer-wise probing results. The token group is fixed per backbone, and scores are averaged across all its layers.</p>
@@ -87,17 +88,18 @@
             <h3 class="stage-title" id="method-probe-title"><span>02</span> Low-rank quadratic probe</h3>
             <svg class="pair-diagram" viewBox="0 0 220 230" role="img" aria-labelledby="pair-title">
               <title id="pair-title">Schematic reference and target-token vectors passed to a low-rank quadratic probe</title>
-              <defs><pattern id="feature-stripes" width="18" height="30" patternUnits="userSpaceOnUse"><rect width="15" height="30" fill="#d5ddcb"/></pattern><marker id="pair-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#89937f"/></marker></defs>
+              <defs><pattern id="feature-stripes" width="92" height="56" patternUnits="userSpaceOnUse"><rect class="feature-channel-1" width="14" height="56"/><rect class="feature-channel-2" x="19" width="14" height="56"/><rect class="feature-channel-3" x="38" width="14" height="56"/><rect class="feature-channel-4" x="57" width="14" height="56"/><rect class="feature-channel-5" x="76" width="14" height="56"/></pattern><marker id="pair-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="var(--muted)"/></marker></defs>
               <text x="55" y="24" text-anchor="middle">h<tspan baseline-shift="sub" font-size="12">a</tspan></text><rect x="10" y="36" width="92" height="56" rx="2" fill="url(#feature-stripes)"/>
               <text x="165" y="24" text-anchor="middle">h<tspan baseline-shift="sub" font-size="12">i</tspan></text><rect x="120" y="36" width="92" height="56" rx="2" fill="url(#feature-stripes)"/>
-              <path d="M56 92L56 113L88 131" fill="none" stroke="#89937f" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
-              <path d="M166 92L166 113L138 131" fill="none" stroke="#89937f" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
-              <rect x="15" y="139" width="196" height="58" rx="3" fill="#f5e5d8" stroke="#c6a58d"/>
+              <path d="M56 92L56 113L88 131" fill="none" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
+              <path d="M166 92L166 113L138 131" fill="none" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
+              <rect x="15" y="139" width="196" height="58" rx="3" fill="var(--probe-fill)" stroke="var(--probe-border)"/>
               <text x="113" y="164" text-anchor="middle">Low-rank quadratic</text><text x="113" y="184" text-anchor="middle">probe</text>
-              <path d="M113 197L113 225" fill="none" stroke="#89937f" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
+              <path d="M113 197L113 225" fill="none" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#pair-arrow)"/>
             </svg>
             <span class="stage-equation"><math display="block" aria-label="p hat i static equals f of h a and h i"><mrow><msubsup><mover accent="true"><mi>p</mi><mo>^</mo></mover><mi>i</mi><mtext>stat</mtext></msubsup><mo>=</mo><mi>f</mi><mo>(</mo><msub><mi mathvariant="bold">h</mi><mi>a</mi></msub><mo>,</mo><msub><mi mathvariant="bold">h</mi><mi>i</mi></msub><mo>)</mo></mrow></math></span>
             <span class="stage-note anchor-static">The anchor a = 0 lies in Pi3X's padded border and is static by design.</span>
+            <span class="motion-key"><span class="state-static">Static</span><span class="state-dynamic">Dynamic</span></span>
             <p class="stage-explanation">Train the rank-8 probe to predict whether two tokens share the same motion state, using 160 YouTube-VOS videos. At inference, compatibility with the static anchor gives the static score.</p>
           </article>
           <article class="method-stage" aria-labelledby="method-mask-title">
