@@ -39,7 +39,21 @@
         "total_input_frames": 3,
         "target_view_index": 0
       },
-      "metadata_sha256": "4834f309397d0a5fcf74a574f8b0296b97801760b415c85cc4b676c5fa9d92c3"
+      "metadata_sha256": "4834f309397d0a5fcf74a574f8b0296b97801760b415c85cc4b676c5fa9d92c3",
+      "score_rendering": {
+        "label": "Dynamic score",
+        "source_array": "bilinear_upsample/frame_*/avg_score_upsampled.npy",
+        "source_files_sha256": "4dd37d15544e763607801e4d6fa9aa3fd5959d89075866b5829b4f027dfc9a51",
+        "colormap": "turbo",
+        "range": [
+          0,
+          1
+        ],
+        "interpolation": "nearest",
+        "prediction_values": "unchanged",
+        "poster_sha256": "58aba3a3dc3f6c72e53e65899b90a80ea2e3784de51a71bf7734879de2679851",
+        "video_sha256": "51698fba1e8858c1b2020916f6fa13cd3c273d31625490af83df3b898cc74a3f"
+      }
     },
     {
       "id": "koala",
@@ -77,7 +91,21 @@
         "total_input_frames": 3,
         "target_view_index": 0
       },
-      "metadata_sha256": "af70279f54643df425cfc096d17da33245172239539523dccfc3b14475182c9d"
+      "metadata_sha256": "af70279f54643df425cfc096d17da33245172239539523dccfc3b14475182c9d",
+      "score_rendering": {
+        "label": "Dynamic score",
+        "source_array": "bilinear_upsample/frame_*/avg_score_upsampled.npy",
+        "source_files_sha256": "2688fd06a5a5f40d43f3da2f121582fbfb002a002d75c16a2ca950af74c4d3a1",
+        "colormap": "turbo",
+        "range": [
+          0,
+          1
+        ],
+        "interpolation": "nearest",
+        "prediction_values": "unchanged",
+        "poster_sha256": "ff708bfa80727dc3a20745c946064b2fad39e2d60c90acf7c6ef294555c1d70d",
+        "video_sha256": "e1928a05931a82a8008df58c60ebaa04c120066324881fa5a95ebe862ed96b73"
+      }
     },
     {
       "id": "cheetah",
@@ -115,7 +143,21 @@
         "total_input_frames": 3,
         "target_view_index": 0
       },
-      "metadata_sha256": "dc9e22db37749d3ab17905af770bd165da1f56c34bd16b1cf6cf59dd1dc3b2c4"
+      "metadata_sha256": "dc9e22db37749d3ab17905af770bd165da1f56c34bd16b1cf6cf59dd1dc3b2c4",
+      "score_rendering": {
+        "label": "Dynamic score",
+        "source_array": "bilinear_upsample/frame_*/avg_score_upsampled.npy",
+        "source_files_sha256": "eb68cb8594c6a4a2c345b2bcc4b847fd0249eee508537ebc8c26e3af78734916",
+        "colormap": "turbo",
+        "range": [
+          0,
+          1
+        ],
+        "interpolation": "nearest",
+        "prediction_values": "unchanged",
+        "poster_sha256": "d8c1865e198be4de71cb51cc08f9af7de415fcf8c314747e38b93c683e90e6fd",
+        "video_sha256": "296c51493287b1f200a5836d4a2d3edfb6c83adf0f1ac50c8dae1571d25b6423"
+      }
     }
   ],
   "figures": {

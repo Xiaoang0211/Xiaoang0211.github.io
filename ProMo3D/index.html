@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ProMo3D: Probing Motion Cues in Frozen 3D Foundation Models</title>
-  <meta name="description" content="ProMo3D studies lightweight motion decoding from frozen 3D foundation models. Explore full-sequence PMD motion scores, coarse masks, and optional SAM2 refinement.">
+  <meta name="description" content="ProMo3D studies lightweight motion decoding from frozen 3D foundation models. Explore full-sequence PMD dynamic score maps, coarse masks, and optional SAM2 refinement.">
   <meta property="og:title" content="ProMo3D: Probing Motion Cues in Frozen 3D Foundation Models">
   <meta property="og:description" content="Frozen geometry. Lightweight probing. Zero-shot motion segmentation.">
   <meta property="og:image" content="https://xiaoang0211.github.io/ProMo3D/assets/teaser.png">
@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css?v=official-resource-logos-20261014">
-  <script src="app.js?v=caf2dd936407" defer></script>
+  <script src="app.js?v=dynamic-score-maps-20261014" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -42,7 +42,7 @@
         <a class="resource" href="https://huggingface.co/Xiaoang0211/ProMo3D" target="_blank" rel="noopener"><img class="resource-icon" src="assets/icons/huggingface.svg" alt="" aria-hidden="true">Models <span aria-hidden="true">&#8599;</span></a>
         <a class="resource" href="https://huggingface.co/datasets/Xiaoang0211/ProMo3D-data" target="_blank" rel="noopener"><img class="resource-icon" src="assets/icons/huggingface.svg" alt="" aria-hidden="true">Data <span aria-hidden="true">&#8599;</span></a>
       </div>
-      <figure class="teaser"><img src="assets/teaser.png" width="2200" height="998" alt="PMD learns a low-rank pairwise probe on frozen geometric tokens and produces motion scores, coarse masks, and optional SAM2-refined masks."><figcaption>Probing-based Motion Distillation (PMD): from frozen geometry to motion segmentation.</figcaption></figure>
+      <figure class="teaser"><img src="assets/teaser.png" width="2200" height="998" alt="PMD learns a low-rank pairwise probe on frozen geometric tokens and produces dynamic score maps, coarse masks, and optional SAM2-refined masks."><figcaption>Probing-based Motion Distillation (PMD): from frozen geometry to motion segmentation.</figcaption></figure>
     </section>
 
     <section id="abstract" class="section abstract-section shell" aria-labelledby="abstract-title">
@@ -52,9 +52,9 @@
 
     <section id="sequences" class="section gallery-section">
       <div class="shell">
-        <div class="section-heading"><div><span class="eyebrow">01 / Qualitative evaluation</span><h2>Qualitative results</h2></div><p>Three complete sequences from the paper's unseen-category examples, with continuous motion scores, coarse PMD masks, and optional SAM2 refinement.</p></div>
+        <div class="section-heading"><div><span class="eyebrow">01 / Qualitative evaluation</span><h2>Qualitative results</h2></div><p>Three complete sequences from the paper's unseen-category examples, with dynamic score maps, coarse PMD masks, and optional SAM2 refinement.</p></div>
         <div class="sequence-tabs" aria-label="Sequence"><button data-sequence="rhino" aria-pressed="true">Rhino <small>DAVIS</small></button><button data-sequence="koala" aria-pressed="false">Koala <small>DAVIS</small></button><button data-sequence="cheetah" aria-pressed="false">Cheetah <small>SegTrackv2</small></button></div>
-        <div class="viewer-toolbar"><p id="sequence-description">Rhino behind a foreground tree</p><div class="view-tabs" aria-label="Prediction view"><button data-view="scores" aria-pressed="false">Dynamic scores</button><button data-view="coarse" aria-pressed="true">Coarse mask</button><button data-view="refined" aria-pressed="false">SAM2 refined</button></div></div>
+        <div class="viewer-toolbar"><p id="sequence-description">Rhino behind a foreground tree</p><div class="view-tabs" aria-label="Prediction view"><button data-view="scores" aria-pressed="false">Dynamic score map</button><button data-view="coarse" aria-pressed="true">Coarse mask</button><button data-view="refined" aria-pressed="false">SAM2 refined</button></div></div>
         <div class="video-pair">
           <figure><span class="video-label">Input</span><video id="input-video" muted playsinline preload="metadata" poster="assets/videos/rhino-input.png" aria-label="Full input sequence"></video></figure>
           <figure><span id="prediction-label" class="video-label">PMD coarse</span><video id="prediction-video" muted playsinline preload="metadata" poster="assets/videos/rhino-coarse.png" aria-label="Full PMD prediction sequence"></video></figure>
@@ -107,7 +107,7 @@
           </article>
           <article class="method-stage" aria-labelledby="method-mask-title">
             <h3 class="stage-title" id="method-mask-title"><span>03</span> Coarse motion mask</h3>
-            <span class="stage-panel"><img src="assets/videos/rhino-scores.png" alt="Stored PMD dynamic score map for rhino frame 70" loading="lazy"><span>Dynamic scores</span></span>
+            <span class="stage-panel"><img src="assets/videos/rhino-scores.png?v=dynamic-score-20261014" alt="Stored PMD dynamic score map for rhino frame 70" loading="lazy"><span>Dynamic score map</span></span>
             <span class="stage-arrow" aria-hidden="true">&#8595;</span>
             <span class="stage-panel"><img src="assets/videos/rhino-coarse.png" alt="Stored PMD coarse mask overlay for rhino frame 70" loading="lazy"><span>Coarse mask</span></span>
             <p class="stage-explanation">Average dynamic scores across the selected blocks, bilinearly upsample, and binarize using the same thresholding rule across benchmarks.</p>

@@ -4,7 +4,7 @@ const play = document.querySelector('#play-button');
 const seek = document.querySelector('#seek');
 const counter = document.querySelector('#frame-counter');
 let samples, currentSample, currentView = 'coarse', playing = false, loadId = 0;
-const viewNames = {scores: 'PMD dynamic scores', coarse: 'PMD coarse', refined: 'PMD + SAM2'};
+const viewNames = {scores: 'PMD dynamic score map', coarse: 'PMD coarse', refined: 'PMD + SAM2'};
 const mediaCache = new Map();
 
 function mediaSource(path) {
@@ -60,8 +60,9 @@ async function showSample(id, view, preserveTime = false) {
   document.querySelector('.video-pair').setAttribute('aria-busy', 'true');
   const sample = currentSample;
   try {
+    const scoreRevision = view === 'scores' ? '?v=dynamic-score-20261014' : '';
     const [inputUrl, predictionUrl] = await Promise.all([
-      sameSequence ? null : mediaSource(sample.views.input.video), mediaSource(sample.views[view].video)
+      sameSequence ? null : mediaSource(sample.views.input.video), mediaSource(sample.views[view].video + scoreRevision)
     ]);
     if (revision !== loadId) return;
     const loading = [];
@@ -73,7 +74,7 @@ async function showSample(id, view, preserveTime = false) {
     }
     prediction.src = predictionUrl;
     prediction.dataset.asset = sample.views[view].video;
-    prediction.poster = sample.views[view].poster;
+    prediction.poster = sample.views[view].poster + scoreRevision;
     loading.push(metadata(prediction));
     await Promise.all(loading);
     if (revision !== loadId) return;
