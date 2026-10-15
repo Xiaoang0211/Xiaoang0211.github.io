@@ -1,0 +1,20 @@
+{
+  "tum": {
+    "file": "tum.svg",
+    "website": "https://www.tum.de/en/",
+    "source": "https://www.tum.de/typo3conf/ext/in2template/Resources/Public/Images/Backend/tum-logo.svg",
+    "format": "official SVG; white logo on TUM blue background"
+  },
+  "mcml": {
+    "file": "mcml.jpg",
+    "website": "https://mcml.ai/",
+    "source": "https://mcml.ai/images/MCML_Logo_cropped.jpg",
+    "format": "official 1472 x 408 JPEG used on the MCML homepage"
+  },
+  "obsphera": {
+    "file": "obsphera.svg",
+    "website": "https://www.obsphera.ai/en",
+    "source": "https://cdn.prod.website-files.com/67bc68acef861614c4ffb41d/67cf124a0a4c5b576c981dd6_obsphera-logo-dark.svg",
+    "format": "official SVG; original dark logo for light backgrounds"
+  }
+}

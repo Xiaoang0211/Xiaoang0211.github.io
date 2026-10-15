@@ -42,3 +42,8 @@
 .resource-icon.arxiv-icon{width:44px;height:20px}
 .wordmark,.paper-wordmark{font-family:var(--sans);font-weight:800;letter-spacing:-.043478em;color:var(--ink)}.paper-wordmark{white-space:nowrap}.paper-wordmark>span{color:var(--static)}
 .reproduction-grid>*{min-width:0}
+.affiliations{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 26px;max-width:1080px;margin:14px auto 0;padding:0;list-style:none}
+.affiliations li{max-width:100%}.affiliation-link{display:flex;align-items:center;gap:10px;min-height:44px;text-align:left;font-size:13px;line-height:1.5;color:var(--muted)}
+.affiliation-link:hover{color:var(--accent)}.affiliation-link:hover>span:last-child{text-decoration:underline;text-underline-offset:3px}.affiliation-link:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:2px}
+.affiliation-logo{display:block;flex:none;object-fit:contain;width:auto;max-width:none;height:24px}.affiliation-logo-tum{display:flex;align-items:center;justify-content:center;width:58px;height:34px;background:#005293}.affiliation-logo-tum img{width:46px;height:24px}
+@media(max-width:620px){.affiliations{gap:3px 18px;margin-top:12px}.affiliation-link{font-size:12px;gap:9px}}
