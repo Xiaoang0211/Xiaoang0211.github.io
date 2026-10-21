@@ -138,5 +138,4 @@ async function copy(button, selector) {
   catch { button.textContent = 'Select the text below'; }
   setTimeout(() => { button.textContent = label; }, 1800);
 }
-document.querySelector('#copy-commands').addEventListener('click', event => copy(event.currentTarget, '#commands'));
 document.querySelector('#copy-citation').addEventListener('click', event => copy(event.currentTarget, '#bibtex'));

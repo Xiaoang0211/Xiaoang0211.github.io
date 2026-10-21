@@ -11,15 +11,15 @@
   <link rel="canonical" href="https://xiaoang0211.github.io/ProMo3D/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="style.css?v=affiliation-links-20261015">
-  <script src="app.js?v=dynamic-score-maps-20261014" defer></script>
+  <link rel="stylesheet" href="style.css?v=research-page-20261021">
+  <script src="app.js?v=research-page-20261021" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav-wrap">
     <nav class="nav shell" aria-label="Main navigation">
       <a class="wordmark" href="#">ProMo<span>3D</span><i aria-hidden="true"></i></a>
-      <div class="nav-links"><a href="#sequences">Demo</a><a href="#method">Method</a><a href="#evidence">Analysis</a><a href="#reproduce">Reproduce</a></div>
+      <div class="nav-links"><a href="#sequences">Demo</a><a href="#method">Method</a><a href="#evidence">Analysis</a></div>
       <a class="venue" href="https://neurips.cc/virtual/2026/poster/151302" target="_blank" rel="noopener">NeurIPS 2026 <span aria-hidden="true">&#8599;</span></a>
     </nav>
   </header>
@@ -137,16 +137,6 @@
         <figure class="evidence-figure"><button id="open-figure" class="figure-zoom" aria-label="Enlarge the current figure"><img id="evidence-image" src="assets/figures/layerwise.png" loading="lazy" alt="Layer-wise motion probing on Pi3X, DA3, and DUSt3R."></button><figcaption id="evidence-caption">Layer-wise motion decodability on Pi3X, DA3, and DUSt3R. Click the figure to enlarge.</figcaption></figure>
         <p id="pca-note" class="scope-note" hidden>PCA here visualizes the supervised <strong>probe-induced subspace</strong>. PMD recovers motion-relevant information for static-dynamic separation.</p>
       </div>
-    </section>
-
-    <section id="reproduce" class="section shell">
-      <div class="section-heading"><div><span class="eyebrow">04 / Experimental protocol</span><h2>Reproduce</h2></div><p>Hugging Face hosts the trained PMD probes and source RGB/masks. Bash scripts cover training and evaluation.</p></div>
-      <div class="reproduction-grid"><div class="code-panel"><div class="code-heading"><span>Pi3X / end-to-end</span><button id="copy-commands">Copy commands</button></div><pre id="commands"><code>bash scripts/download_huggingface.sh --assets all
-bash scripts/main/run.sh export pi3x
-bash scripts/main/run.sh train pi3x
-bash scripts/main/run.sh masks pi3x
-bash scripts/main/run.sh refine pi3x
-bash scripts/main/run.sh eval pi3x</code></pre></div><div class="reproduction-copy"><h3>Token export and dense inference</h3><p>Exported tokens prepare probe training and token-level evaluation. Mask inference runs the frozen backbone on images and decodes the full target-frame token grid. Pre-exported test tokens are not required for mask inference.</p><p>Benchmark transfer covers DAVIS, SegTrackv2, and FBMS-59, with no target-benchmark fine-tuning.</p></div></div>
     </section>
 
     <section class="citation shell"><div><span class="eyebrow">Reference</span><h2>Citation</h2><button id="copy-citation" class="text-button">Copy BibTeX</button></div><pre id="bibtex">@inproceedings{zhang2026promo3d,
