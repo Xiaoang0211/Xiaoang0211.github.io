@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f9faf8">
+  <meta name="author" content="Xiaoang Zhang">
+  <meta name="description" content="A doctoral research proposal on data-efficient neural PDE surrogates, transfer to unseen geometries, and multi-step urban flood forecasts.">
+  <title>Data- and Training-Efficient PDE Surrogates · Xiaoang Zhang</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast wrap">
+    <a class="wordmark" href="#top" aria-label="Xiaoang Zhang, top of page"><span class="brand-bars" aria-hidden="true"><i></i><i></i><i></i></span>Xiaoang Zhang</a>
+    <nav aria-label="Page navigation"><a href="#research">Research</a><a href="#benchmark">Benchmark</a><a class="pdf-nav" href="./proposal.pdf">Proposal PDF</a></nav>
+  </header>
+  <main id="main">
+    <div class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Doctoral research proposal</p>
+        <h1><span class="title-lead">Data- and training-efficient</span> <span class="title-core">PDE surrogates</span> <span class="title-end">for engineering applications</span></h1>
+        <p class="intro">How much simulation data and training time does a fast surrogate need to predict flow reliably on a geometry it has never seen?</p>
+        <a class="button" href="./proposal.pdf">Read the public proposal <small>PDF</small></a>
+      </div>
+      <figure class="hero-figure">
+        <div class="figure-frame"><img src="./flow-mesh.png" width="900" height="510" alt="Idealised flow streamlines bend around an elliptical obstacle on a triangular mesh."></div>
+        <figcaption><span class="figure-title">Flow around an ellipse</span><span>Analytical illustration</span></figcaption>
+      </figure>
+    </div>
+
+    <section class="research wrap" id="research" aria-labelledby="research-title">
+      <div class="section-heading"><p class="eyebrow">Research programme</p><h2 id="research-title">Learning flow on irregular meshes</h2></div>
+      <div class="columns">
+        <article><h3>Representing the field</h3><p>A fine mesh may place many points along one boundary. How should a model weight their contributions when it compresses velocity, pressure or water depth into a small set of tokens?</p></article>
+        <article><h3>Conditioning on geometry</h3><p>The same rain can produce different flooding on two terrains. I will compare giving a model all inputs together with letting a separate geometry representation guide the flow prediction.</p></article>
+        <article><h3>Testing pretraining</h3><p>I will compare training from scratch with adapting a pretrained model. At the same forecast accuracy, which needs fewer new simulations and less total computation?</p></article>
+      </div>
+    </section>
+
+    <section class="benchmark" id="benchmark" aria-labelledby="benchmark-title">
+      <div class="wrap benchmark-grid">
+        <div><p class="eyebrow">Proposed KISS benchmark</p><h2 id="benchmark-title">Forecasting in a new catchment</h2><p>Urban flood forecasts depend on terrain, rainfall, infiltration and exchange between surface water and sewers. The planned benchmark will reserve entire real and synthetic catchments for testing.</p></div>
+        <dl class="protocol">
+          <div><dt>Geometry transfer</dt><dd>Train on one set of catchments. Forecast on a held-out site using its terrain and drainage network, then measure what a small budget of local simulations adds.</dd></div>
+          <div><dt>Forecast horizon</dt><dd>Start from one observed field and feed predictions back into the model. Track how depth errors grow and when the predicted flood peak arrives.</dd></div>
+          <div><dt>Cost at matched accuracy</dt><dd>Compare the surrogate and numerical solver at the same accuracy and forecast horizon. Count how many forecasts recover the cost of generating data and training the model.</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>Xiaoang Zhang</span><a href="./proposal.pdf">Public proposal (PDF)</a><a href="https://github.com/Xiaoang0211">GitHub profile</a></footer>
+</body>
+</html>
