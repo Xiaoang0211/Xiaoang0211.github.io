@@ -98,17 +98,10 @@ footer a { color: var(--blue); }
 .depth-key { margin-top: 1rem; display: flex; align-items: center; flex-wrap: wrap; column-gap: 1.6rem; row-gap: .4rem; }
 .depth-key img { display:block; width:min(21rem,100%); height:auto; }
 .depth-key p { font-size:.87rem; line-height:1.55; color:var(--muted); margin:.35rem 0; max-width:39ch; }
-.rollout { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:center; gap:clamp(1.8rem,4.6vw,4.5rem); border-top:1px solid var(--line); margin-top:2.1rem; padding-top:2rem; }
-.rollout-text h3 { font-size:clamp(1.5rem,2.3vw,2rem); }
-.rollout-text p { color:var(--body); }
-.rollout-text strong { font-weight:650; }
-.rollout-text p.plot-note { color:var(--muted); }
-.rollout-chart { border:1px solid var(--line); border-radius:.35rem; overflow:hidden; background:white; }
 @media(max-width:790px) { .terrain-pair img { max-height: 17rem; } }
 @media(max-width:620px) {
   .depth-comparison { grid-template-columns:1fr; max-width:28rem; margin-inline:auto; }
   .depth-comparison img { max-height:18rem; object-fit:contain; }
-  .rollout { grid-template-columns:1fr; gap:1rem; }
   .depth-key { justify-content:center; text-align:center; }
   .terrain-pair { gap:.4rem; }
   .terrains .plot-note { font-size:.81rem; }

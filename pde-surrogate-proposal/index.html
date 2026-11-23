@@ -25,12 +25,12 @@
         <div class="hero-actions"><a class="button" href="#case-study">Explore the KISS results</a></div>
       </div>
       <figure class="hero-figure terrains" aria-labelledby="terrain-title">
-        <figcaption id="terrain-title"><span class="figure-title">Two terrain meshes from KISS</span></figcaption>
+        <figcaption id="terrain-title"><span class="figure-title">KISS terrain meshes from GeoCPM</span></figcaption>
         <div class="terrain-pair">
           <figure><img src="./terrain-erlbach.webp" width="620" height="410" alt="Oblique 3D view of the Erlbach terrain."><figcaption>Erlbach</figcaption></figure>
           <figure><img src="./terrain-flurstrasse.webp" width="620" height="410" alt="Oblique 3D view of the Flurstraße terrain."><figcaption>Flurstraße</figcaption></figure>
         </div>
-        <p class="plot-note">GeoCPM meshes shown at the same angle. Higher ground appears lighter. Relief is exaggerated 5×, and each site is scaled to fit.</p>
+        <p class="plot-note">Lighter colours indicate higher ground. Relief is exaggerated 5×, and each site is scaled to fit.</p>
       </figure>
     </div>
 
@@ -45,15 +45,9 @@
         <figure><h3>Functional Attention</h3><p class="method-kind">Neural operator</p><a class="open-image" href="./depth-fa.webp" title="Open full-size figure"><img src="./depth-fa.webp" width="760" height="662" alt="Water depth predicted by Functional Attention for the same site and time."></a></figure>
         <figure><h3>Transolver</h3><p class="method-kind">Neural operator</p><a class="open-image" href="./depth-transolver.webp" title="Open full-size figure"><img src="./depth-transolver.webp" width="760" height="662" alt="Water depth predicted by Transolver for the same site and time."></a></figure>
       </div>
-      <div class="depth-key"><div class="colour-legend" role="img" aria-label="Water depth in millimetres, displayed on a shared nonlinear scale with ticks at zero, ten, one hundred, and one thousand or more."><span>Water depth (mm)</span><div class="colour-ramp"></div><div class="colour-ticks" aria-hidden="true"><b>0</b><b>10</b><b>100</b><b>≥1,000</b></div></div><p>All three maps use the same nonlinear depth scale. Grey cells had no initial depth record and are excluded from the error calculation.</p></div>
+      <div class="depth-key"><div class="colour-legend" role="img" aria-label="Water depth in millimetres, displayed on a shared nonlinear scale with ticks at zero, ten, one hundred, and one thousand or more."><span>Water depth (mm)</span><div class="colour-ramp"></div><div class="colour-ticks" aria-hidden="true"><b>0</b><b>10</b><b>100</b><b>≥1,000</b></div></div><p>All three maps use the same nonlinear depth scale. Grey cells had no initial depth record.</p></div>
 
-      <div class="rollout">
-        <div class="rollout-text"><h3>How error grows with lead time</h3>
-        <p>At a 25-minute lead, mean absolute depth error was <strong>4.73 mm</strong> for Functional Attention, <strong>6.69 mm</strong> for Transolver and <strong>6.32 mm</strong> for persistence, which holds the initial field fixed.</p>
-        <p class="plot-note">One rainfall event, one training seed and 196,031 evaluated triangles. Rainfall input was set to zero from event minute 45. This test measures forecasting within a site.</p></div>
-        <figure class="rollout-chart"><a class="open-image" href="./forecast-error.webp" title="Open full-size figure"><img src="./forecast-error.webp" width="1179" height="585" alt="Mean absolute depth error grows from approximately 2 millimetres at a five-minute lead to 4.73 for Functional Attention, 6.69 for Transolver and 6.32 for persistence at 25 minutes."></a></figure>
-      </div>
-    <p class="source-line">Terrain and reference simulations supplied by tandler for the KISS project.</p>
+      <p class="source-line">Terrain and reference simulations supplied by tandler for the KISS project.</p>
     </section>
 
     <section class="research wrap" id="research" aria-labelledby="research-title">
