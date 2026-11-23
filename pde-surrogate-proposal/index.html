@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#f9faf8">
   <meta name="author" content="Xiaoang Zhang">
-  <meta name="description" content="A doctoral research proposal on data-efficient neural PDE surrogates, transfer to unseen geometries, and multi-step urban flood forecasts.">
+  <meta name="description" content="Research on data-efficient PDE surrogates, with 3D terrain views from KISS and urban flood forecasts for Flurstraße.">
   <title>Data- and Training-Efficient PDE Surrogates · Xiaoang Zhang</title>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,28 +14,54 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="mast wrap">
     <a class="wordmark" href="#top" aria-label="Xiaoang Zhang, top of page"><span class="brand-bars" aria-hidden="true"><i></i><i></i><i></i></span>Xiaoang Zhang</a>
-    <nav aria-label="Page navigation"><a href="#research">Research</a><a href="#benchmark">Benchmark</a><a class="pdf-nav" href="./proposal.pdf">Proposal PDF</a></nav>
+    <nav aria-label="Page navigation"><a href="#case-study">KISS results</a><a href="#research">Research</a><a class="pdf-nav" href="./proposal.pdf">Proposal PDF</a></nav>
   </header>
   <main id="main">
     <div class="hero wrap">
       <div class="hero-copy">
-        <p class="eyebrow">Doctoral research proposal</p>
+        <p class="eyebrow">Research proposal</p>
         <h1><span class="title-lead">Data- and training-efficient</span> <span class="title-core">PDE surrogates</span> <span class="title-end">for engineering applications</span></h1>
         <p class="intro">How much simulation data and training time does a fast surrogate need to predict flow reliably on a geometry it has never seen?</p>
-        <a class="button" href="./proposal.pdf">Read the public proposal <small>PDF</small></a>
+        <div class="hero-actions"><a class="button" href="./proposal.pdf">Read the proposal <small>PDF</small></a><a class="results-link" href="#case-study">Explore the KISS results</a></div>
       </div>
-      <figure class="hero-figure">
-        <div class="figure-frame"><img src="./flow-mesh.png" width="900" height="510" alt="Idealised flow streamlines bend around an elliptical obstacle on a triangular mesh."></div>
-        <figcaption><span class="figure-title">Flow around an ellipse</span><span>Analytical illustration</span></figcaption>
+      <figure class="hero-figure terrains" aria-labelledby="terrain-title">
+        <figcaption id="terrain-title"><span class="figure-title">Two terrain meshes from KISS</span></figcaption>
+        <div class="terrain-pair">
+          <figure><img src="./terrain-erlbach.webp" width="620" height="410" alt="Oblique 3D view of the Erlbach terrain."><figcaption>Erlbach</figcaption></figure>
+          <figure><img src="./terrain-flurstrasse.webp" width="620" height="410" alt="Oblique 3D view of the Flurstraße terrain."><figcaption>Flurstraße</figcaption></figure>
+        </div>
+        <p class="plot-note">GeoCPM meshes shown at the same angle. Higher ground appears lighter. Relief is exaggerated 5×, and each site is scaled to fit.</p>
       </figure>
     </div>
+
+    <section class="case-study wrap" id="case-study" aria-labelledby="case-title">
+      <header class="section-heading">
+        <p class="eyebrow">KISS · Preliminary results</p>
+        <h2 id="case-title">A 25-minute flood forecast for Flurstraße</h2>
+        <p class="case-intro">Both models start from the reference field at event minute 30 and predict five successive five-minute steps. The maps compare their final water depths with the GeoCPM reference at minute 55.</p>
+      </header>
+      <div class="depth-comparison">
+        <figure><h3>GeoCPM</h3><p class="method-kind">Reference solver</p><a class="open-image" href="./depth-reference.webp" title="Open full-size figure"><img src="./depth-reference.webp" width="760" height="662" alt="Reference surface water depth at minute 55 on Flurstraße."></a></figure>
+        <figure><h3>Functional Attention</h3><p class="method-kind">Neural operator</p><a class="open-image" href="./depth-fa.webp" title="Open full-size figure"><img src="./depth-fa.webp" width="760" height="662" alt="Water depth predicted by Functional Attention for the same site and time."></a></figure>
+        <figure><h3>Transolver</h3><p class="method-kind">Neural operator</p><a class="open-image" href="./depth-transolver.webp" title="Open full-size figure"><img src="./depth-transolver.webp" width="760" height="662" alt="Water depth predicted by Transolver for the same site and time."></a></figure>
+      </div>
+      <div class="depth-key"><div class="colour-legend" role="img" aria-label="Water depth in millimetres, displayed on a shared nonlinear scale with ticks at zero, ten, one hundred, and one thousand or more."><span>Water depth (mm)</span><div class="colour-ramp"></div><div class="colour-ticks" aria-hidden="true"><b>0</b><b>10</b><b>100</b><b>≥1,000</b></div></div><p>All three maps use the same nonlinear depth scale. Grey cells had no initial depth record and are excluded from the error calculation.</p></div>
+
+      <div class="rollout">
+        <div class="rollout-text"><h3>How error grows with lead time</h3>
+        <p>At a 25-minute lead, mean absolute depth error was <strong>4.73 mm</strong> for Functional Attention, <strong>6.69 mm</strong> for Transolver and <strong>6.32 mm</strong> for persistence, which holds the initial field fixed.</p>
+        <p class="plot-note">One rainfall event, one training seed and 196,031 evaluated triangles. Rainfall input was set to zero from event minute 45. This test measures forecasting within a site.</p></div>
+        <figure class="rollout-chart"><a class="open-image" href="./forecast-error.webp" title="Open full-size figure"><img src="./forecast-error.webp" width="1179" height="585" alt="Mean absolute depth error grows from approximately 2 millimetres at a five-minute lead to 4.73 for Functional Attention, 6.69 for Transolver and 6.32 for persistence at 25 minutes."></a></figure>
+      </div>
+    <p class="source-line">Terrain and reference simulations supplied by tandler for the KISS project.</p>
+    </section>
 
     <section class="research wrap" id="research" aria-labelledby="research-title">
       <div class="section-heading"><p class="eyebrow">Research programme</p><h2 id="research-title">Learning flow on irregular meshes</h2></div>
       <div class="columns">
         <article><h3>Representing the field</h3><p>A fine mesh may place many points along one boundary. How should a model weight their contributions when it compresses velocity, pressure or water depth into a small set of tokens?</p></article>
-        <article><h3>Conditioning on geometry</h3><p>The same rain can produce different flooding on two terrains. I will compare giving a model all inputs together with letting a separate geometry representation guide the flow prediction.</p></article>
-        <article><h3>Testing pretraining</h3><p>I will compare training from scratch with adapting a pretrained model. At the same forecast accuracy, which needs fewer new simulations and less total computation?</p></article>
+        <article><h3>Conditioning on geometry</h3><p>The same rain can produce different flooding on two terrains. The study tests whether a separate geometry representation improves flow prediction over supplying all inputs together.</p></article>
+        <article><h3>Testing pretraining</h3><p>The experiments compare training from scratch with adapting a pretrained model. At the same forecast accuracy, which needs fewer new simulations and less total computation?</p></article>
       </div>
     </section>
 
